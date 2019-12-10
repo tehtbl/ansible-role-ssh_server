@@ -20,8 +20,8 @@ PermitRootLogin no
 StrictModes yes
 
 PubkeyAuthentication yes
-# AuthorizedKeysFile %h/.ssh/authorized_keys
-AuthorizedKeysFile  /etc/ssh/authorized_keys/%u
+AuthorizedKeysFile %h/.ssh/authorized_keys
+# AuthorizedKeysFile  /etc/ssh/authorized_keys/%u
 PasswordAuthentication no
 
 IgnoreRhosts yes
@@ -37,7 +37,7 @@ TCPKeepAlive yes
 
 Banner /etc/issue.net
 
-AllowUsers {{ srv_init_deploy_user.name }}
+AllowUsers {% for u in ssh_server_users %}{{ u.name }} {% endfor %}
 
 AcceptEnv LANG LC_*
 Subsystem sftp /usr/lib/openssh/sftp-server

@@ -3,7 +3,7 @@
 # handlers file for ssh_server
 # ------------------------------------------------------------------------
 
-- name: restart ssh_server
+- name: restart ssh server
   service:
     name: "{{ ssh_server_service }}"
     state: restarted
