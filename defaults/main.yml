@@ -1,0 +1,22 @@
+---
+# ------------------------------------------------------------------------
+# defaults file for ssh_server
+# ------------------------------------------------------------------------
+
+# Re-new all sshd server keys
+ssh_server_renew_keys: true
+
+# Copy issue.net
+ssh_server_copy_issue_net: false
+
+# # Allowed users to connect to SSH server
+# ssh_server_allowed_users:
+#   - userone
+
+# Allowed users to connect to SSH server
+ssh_server_users:
+  - usr: userone
+    key: ssh-rsa XXX comment
+
+# TODO
+#   - add cfg for server_ca

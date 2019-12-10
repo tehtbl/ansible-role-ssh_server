@@ -1,0 +1,10 @@
+---
+# ------------------------------------------------------------------------
+# vars file for ssh_server
+# ------------------------------------------------------------------------
+
+_ssh_server_packages:
+  default:
+    - ssh_server
+
+ssh_server_packages: "{{ _ssh_server_packages[ansible_os_family] | default(_ssh_server_packages['default']) }}"

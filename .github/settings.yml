@@ -1,0 +1,4 @@
+---
+repository:
+  description: Install and configure ssh server on a system.
+  homepage: https://github.com/tehtbl/ansible-role-ssh_server
