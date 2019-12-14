@@ -1,17 +1,12 @@
 ---
 
 # TODO:
-#   - check if user exists
 #   - sshd server_ca
 #       - https://www.digitalocean.com/community/tutorials/how-to-create-an-ssh-ca-to-validate-hosts-and-clients-with-ubuntu
 #       - https://framkant.org/2017/07/scalable-access-control-using-openssh-certificates/
 #       - https://www.ssh.com/ssh/authorized_keys/openssh
 #       - https://gist.github.com/sivel/c68f601137ef9063efd7
 #       - https://engineering.fb.com/security/scalable-and-secure-access-with-ssh/
-#
-# TODO
-#   - copy ssh pubkeys to /etc/ssh/authorized_keys/%u
-#   - set correct permissions
 
 # ------------------------------------------------------------------------
 # tasks file for ssh_server
@@ -27,21 +22,13 @@
 
 - name: configure ssh server
   template:
-    src: "{{ ssh_server_config_file }}.j2"
-    dest: "{{ ssh_server_config_directory }}/{{ ssh_server_config_file }}"
+    src: "{{ ssh_server_configuration_file }}.j2"
+    dest: "{{ ssh_server_config_directory }}/{{ ssh_server_configuration_file }}"
     owner: "root"
     group: "root"
     mode: "644"
   notify:
     - restart ssh server
-
-- name: deploy ssh public keys for ssh users
-  authorized_key:
-    user: "{{ item.name }}"
-    key: "{{ item.pubkey }}"
-    state: "{{ item.state | default("absent") }}"
-  with_items:
-    - "{{ ssh_server_users }}"
 
 - name: remove old sshd host keys
   file:
@@ -60,7 +47,9 @@
 
 - name: re-create sshd host keys
   command: dpkg-reconfigure -plow -fnoninteractive openssh-server
-  when: ssh_server_renew_keys | bool
+  when:
+    - ssh_server_renew_keys | bool
+    # TODO: - ansible_distribution == "Debian"
 
 - name: copy issue.net
   copy:
@@ -70,7 +59,7 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
   with_items:
-    - { src: "issue.net", dest: "/etc/" }
+    - {src: "issue.net", dest: "/etc/"}
   when: ssh_server_copy_issue_net | bool
 
 - name: start and enable ssh_server

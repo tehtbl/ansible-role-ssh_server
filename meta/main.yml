@@ -18,8 +18,9 @@ galaxy_info:
         - bionic
 
   galaxy_tags:
-    - sshd
-    - ssh server
+    - ssh
+    - openssh
+    - server
     - installer
     - client
     - server

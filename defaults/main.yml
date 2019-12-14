@@ -4,16 +4,10 @@
 # ------------------------------------------------------------------------
 
 # Re-new all sshd server keys
-ssh_server_renew_keys: true
+ssh_server_renew_keys: false
 
 # Copy issue.net
-ssh_server_copy_issue_net: false
-
-# Allowed users to connect to SSH server
-ssh_server_users:
-  - name: userone
-    pubkey: ssh-rsa XXX comment
-    state: present
+ssh_server_copy_issue_net: true
 
 # TODO
 #   - add cfg for server_ca, etc

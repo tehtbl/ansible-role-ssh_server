@@ -11,7 +11,8 @@ HostKey /etc/ssh/ssh_host_ed25519_key
 
 UsePrivilegeSeparation yes
 KeyRegenerationInterval 3600
-ServerKeyBits 2048
+# ServerKeyBits 2048
+ServerKeyBits 4096
 
 SyslogFacility AUTH
 LogLevel INFO
@@ -36,8 +37,6 @@ PrintLastLog yes
 TCPKeepAlive yes
 
 Banner /etc/issue.net
-
-AllowUsers {% for u in ssh_server_users %}{{ u.name }} {% endfor %}
 
 AcceptEnv LANG LC_*
 Subsystem sftp /usr/lib/openssh/sftp-server
