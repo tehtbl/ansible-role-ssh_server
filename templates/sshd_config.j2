@@ -38,6 +38,8 @@ TCPKeepAlive yes
 
 Banner /etc/issue.net
 
+AllowUsers {{ ssh_server_allow_users | join(' ') }}
+
 AcceptEnv LANG LC_*
 Subsystem sftp /usr/lib/openssh/sftp-server
 UsePAM yes
