@@ -4,7 +4,7 @@
 Role Description
 ================
 
-Install and configure ssh_server on a system.
+Install and configure ssh server on a system.
 
 Example Playbook
 ================
@@ -30,8 +30,6 @@ This example is taken from `molecule/default/playbook.yml` and is tested on each
 Role Variables
 ==============
 
-<There are no default role variables set.>
-
 These variables are set in `defaults/main.yml`:
 
 ```yaml
@@ -40,6 +38,11 @@ These variables are set in `defaults/main.yml`:
 # defaults file for ssh_server
 # ------------------------------------------------------------------------
 
+# Re-new all sshd server keys
+ssh_server_renew_keys: false
+
+# Copy issue.net
+ssh_server_copy_issue_net: true
 
 ```
 
