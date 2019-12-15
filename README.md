@@ -44,6 +44,10 @@ ssh_server_renew_keys: false
 # Copy issue.net
 ssh_server_copy_issue_net: true
 
+# AllowUsers directive to connect to ssh server
+ssh_server_allow_users:
+  - "{{ ansible_ssh_user }}"
+
 ```
 
 Requirements
