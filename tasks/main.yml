@@ -69,3 +69,9 @@
     enabled: true
   when:
     - ansible_virtualization_type != "docker"
+
+# ------------------------------------------------------------------------
+# flush handlers
+# ------------------------------------------------------------------------
+- name: flush handlers
+  meta: flush_handlers
