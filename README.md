@@ -4,7 +4,7 @@
 Role Description
 ================
 
-Install and configure ssh server on a system.
+Install and configure an openssh-server on your system.
 
 Example Playbook
 ================
@@ -13,18 +13,29 @@ This example is taken from `molecule/default/playbook.yml` and is tested on each
 
 ```yaml
 ---
-# ------------------------------------------------------------------------
-# Install and configure ssh_server
-# ------------------------------------------------------------------------
-- name: ssh_server
+- name: Converge
   hosts: all
   become: true
   gather_facts: false
 
   roles:
-    - role: tehtbl.bootstrap
-    - role: tehtbl.ssh_server
+    - tehtbl.role: ssh_server
       ssh_server_parameter: value
+
+```
+
+The machine you are running this on, may need to be prepared, I use this playbook to ensure everything is in place to let the role work.
+
+```yaml
+---
+- name: Prepare
+  hosts: all
+  become: true
+  gather_facts: false
+
+  roles:
+    - tehtbl.role: tehtbl.bootstrap
+
 ```
 
 Role Variables
@@ -46,7 +57,7 @@ ssh_server_copy_issue_net: true
 
 # AllowUsers directive to connect to ssh server
 ssh_server_allow_users:
-  - "{{ ansible_ssh_user }}"
+  - "*"
 
 ```
 
@@ -54,12 +65,11 @@ Requirements
 ============
 
 - Access to a repository containing packages, likely on the internet.
-- A recent version of Ansible (Tests run on the current, previous and next release of Ansible).
+- A recent version of Ansible. (Tests run on the current, previous and next release of Ansible.)
 
 The following roles can be installed to ensure all requirements are met, using `ansible-galaxy install -r requirements.yml`:
 
 ```yaml
----
 - tehtbl.bootstrap
 
 ```
@@ -142,7 +152,7 @@ vagrant up
 License
 =======
 
-GNU General Public License v3.0
+MIT License
 
 Author Information
 ==================

@@ -1,4 +1,4 @@
 ---
 repository:
-  description: Install and configure ssh server on a system.
+  description: Install and configure an openssh-server on your system.
   homepage: https://github.com/tehtbl/ansible-role-ssh_server
