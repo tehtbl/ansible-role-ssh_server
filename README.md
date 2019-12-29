@@ -19,8 +19,7 @@ This example is taken from `molecule/default/playbook.yml` and is tested on each
   gather_facts: false
 
   roles:
-    - tehtbl.role: ssh_server
-      ssh_server_parameter: value
+    - role: tehtbl.ssh_server
 
 ```
 
@@ -34,7 +33,7 @@ The machine you are running this on, may need to be prepared, I use this playboo
   gather_facts: false
 
   roles:
-    - tehtbl.role: tehtbl.bootstrap
+    - role: tehtbl.bootstrap
 
 ```
 
@@ -55,7 +54,7 @@ ssh_server_renew_keys: false
 # Copy issue.net
 ssh_server_copy_issue_net: true
 
-# AllowUsers directive to connect to ssh server
+# AllowUsers directive to specify who can connect to the ssh server
 ssh_server_allow_users:
   - "*"
 

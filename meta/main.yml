@@ -20,6 +20,7 @@ galaxy_info:
   galaxy_tags:
     - ssh
     - sshd
+    - openssh-server
     - client
     - server
     - system
@@ -27,4 +28,6 @@ galaxy_info:
     - ubuntu
     - linux
 
-dependencies: []
+dependencies:
+  - tehtbl.bootstrap
+  

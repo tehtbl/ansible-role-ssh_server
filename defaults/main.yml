@@ -9,6 +9,6 @@ ssh_server_renew_keys: false
 # Copy issue.net
 ssh_server_copy_issue_net: true
 
-# AllowUsers directive to connect to ssh server
+# AllowUsers directive to specify who can connect to the ssh server
 ssh_server_allow_users:
   - "*"
