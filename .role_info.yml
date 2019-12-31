@@ -7,4 +7,5 @@ deps:
 tags:
   - ssh
   - sshd
-  - openssh-server
+  - openssh
+  - opensshd

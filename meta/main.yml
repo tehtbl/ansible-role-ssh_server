@@ -20,7 +20,8 @@ galaxy_info:
   galaxy_tags:
     - ssh
     - sshd
-    - openssh-server
+    - openssh
+    - opensshd
     - client
     - server
     - system
