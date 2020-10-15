@@ -2,8 +2,7 @@
 gid: 45336
 name: ssh_server
 desc: Install and configure an openssh-server on your system.
-deps:
-  - tehtbl.bootstrap
+deps: []
 tags:
   - ssh
   - sshd
